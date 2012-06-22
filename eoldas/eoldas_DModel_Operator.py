@@ -297,7 +297,7 @@ class DModel_Operator ( Operator ):
                 return 0
             self.novar = False
             ww = np.where(slocations > 0)
-	    mod = int(self.rt_model.wraparound_mod) or slocations.shape[self.linear.gamma_loc]
+	    mod = int(self.rt_model.wraparound_mod)/lim[-1] or slocations.shape[self.linear.gamma_loc]
             if self.rt_model.wraparound == 'reflexive':
                 slocations[ww] = 0.
                 #slocations[ww] = -np.fmod(mod - slocations[ww],mod)
